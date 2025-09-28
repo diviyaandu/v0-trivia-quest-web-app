@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation"
 import { QuizEngine } from "@/components/quiz/quiz-engine"
+import EraScene from "../../components/era-scene"
 import { getEraLabel, isEraKey, type EraKey } from "@/data/eras"
 
 export default function EraQuizPage({ params }: { params: { era: string } }) {
@@ -13,6 +14,7 @@ export default function EraQuizPage({ params }: { params: { era: string } }) {
           <h1 className="text-2xl font-semibold md:text-3xl">{getEraLabel(eraParam as EraKey)} Quiz</h1>
           <p className="mt-1 text-muted-foreground">Answer the questions before the sand runs out. Use hints wisely!</p>
         </header>
+        <EraScene era={eraParam as EraKey} />
         <QuizEngine era={eraParam as EraKey} />
       </section>
     </main>
